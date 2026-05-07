@@ -5,6 +5,14 @@
     border: none;
     font-family:'Inter',Arial, sans-serif;
 }
+footer{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
 table{
     width: 100%;
     border-collapse: collapse;
