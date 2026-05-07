@@ -258,8 +258,13 @@ tbody tr:hover{
     cursor: pointer;
     background-color: rgb(204, 204, 204) ;
 }
+table {
+    width: 100%;
+    table-layout: fixed;
+}
 td{
-    min-width: none;
+    width: 40px;
+    min-width: 20px;
     max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
