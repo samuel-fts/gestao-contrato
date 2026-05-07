@@ -503,9 +503,8 @@ const formatarCNPJ = (cnpj_)=>{
 }
 const recebeBD = ()=>{
   
-    fetch("https://gestao-contrato.onrender.com/")
-    .then((res)=>{res.json()
-    })
+    fetch("https://gestao-contrato-1.onrender.com/")
+    .then(res => res.json)
     .then((bd)=>{const dados = bd;
         a_contratos = dados.map(el=> new Contratos(el.num, el.fornecedor, el.cnpj, el.valor, el.ano, el.inicio, el.fim, el.objeto))
          criar()
@@ -518,7 +517,7 @@ const exportarBkp = ()=>{
     fetch(PORTA_bkp,{
         method:"POST",
         headers:{"Content-Tyoe":"application/json"},
-        body:[JSON.stringify(a_contrator_bkp)]
+        body:JSON.stringify(a_contrator_bkp)
     })
 }
 
@@ -527,7 +526,7 @@ const exportarBD = ()=>{
     fetch(PORTA,{
         method: "POST",
         headers:{"Content-Type":"application/json"},
-        body:[JSON.stringify(a_contratos)]
+        body:JSON.stringify(a_contratos)
     })
 }
 
