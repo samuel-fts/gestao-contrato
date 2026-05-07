@@ -16,6 +16,7 @@ const btn_edit = document.getElementById("btn_edit")
 const btn_trash = document.getElementById("btn_trash")
 const info = document.querySelector(".info")
 let contratoSelecionado = []
+let contratoSelecionado2 = null
 const PORTA = 'https://gestao-contrato.onrender.com/exportar'
 const PORTA_bkp = 'https://gestao-contrato.onrender.com/bkp'
 const min_data = document.getElementById('min_data')
@@ -137,7 +138,7 @@ btn_fechar.addEventListener("click",()=>{
 })
 
 btn_edit.addEventListener("click",()=>{
-    contratoSelecionado.editar();
+    contratoSelecionado2.editar();
     
 })
 
@@ -236,7 +237,7 @@ class Contratos{
                 contratoSelecionado.push(this)
                 return
             }else  if(e.target.classList.value == "items_ch"){ contratoSelecionado = contratoSelecionado.filter(el=> el!= this);console.log(contratoSelecionado); return}
-            contratoSelecionado.push(this);
+            contratoSelecionado2=this;
             this.exibir();
         })
         
