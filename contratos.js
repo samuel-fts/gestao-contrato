@@ -29,8 +29,36 @@ const master = document.getElementById("master")
 
 let a_contratos = []
 let a_contrator_bkp = []
+const recebeBD = async ()=>{
+  
+    fetch("https://gestao-contrato.onrender.com/")
+    .then(res => res.json())
+    .then((bd)=>{const dados = bd;
+        a_contratos = dados.map(el=> new Contratos(el.num, el.fornecedor, el.cnpj, el.valor, el.ano, el.inicio, el.fim, el.objeto))
+         criar()
+         graficos()
+    })
 
-btn_salvar.addEventListener("click",()=>{
+   
+}
+const exportarBkp = async ()=>{
+    fetch(PORTA_bkp,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(a_contrator_bkp)
+    })
+}
+
+
+const exportarBD = async()=>{
+    fetch(PORTA,{
+        method: "POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(a_contratos)
+    })
+}
+
+btn_salvar.addEventListener("click",async()=>{
     a_dados = [cnpj, num_contrato, ano_contrato, fornecedor, obj_contrato, data_inicial, data_final ,valor]
     const verifi = a_dados.some(n=>n.value == "")
     a_dados.map((el)=>{
@@ -501,34 +529,7 @@ const formatarCNPJ = (cnpj_)=>{
     }
    
 }
-const recebeBD = async ()=>{
-  
-    fetch("https://gestao-contrato.onrender.com/")
-    .then(res => res.json())
-    .then((bd)=>{const dados = bd;
-        a_contratos = dados.map(el=> new Contratos(el.num, el.fornecedor, el.cnpj, el.valor, el.ano, el.inicio, el.fim, el.objeto))
-         criar()
-         graficos()
-    })
 
-   
-}
-const exportarBkp = async ()=>{
-    fetch(PORTA_bkp,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(a_contrator_bkp)
-    })
-}
-
-
-const exportarBD = async()=>{
-    fetch(PORTA,{
-        method: "POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(a_contratos)
-    })
-}
 
 
 
