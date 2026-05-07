@@ -236,7 +236,7 @@ class Contratos{
                 contratoSelecionado.push(this)
                 return
             }else  if(e.target.classList.value == "items_ch"){ contratoSelecionado = contratoSelecionado.filter(el=> el!= this);console.log(contratoSelecionado); return}
-            contratoSelecionado = this;
+            contratoSelecionado.push(this);
             this.exibir();
         })
         
