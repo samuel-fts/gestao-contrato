@@ -504,8 +504,7 @@ const formatarCNPJ = (cnpj_)=>{
 const recebeBD = ()=>{
   
     fetch("https://gestao-contrato.onrender.com/")
-    .then((res)=>{const resp = res.json()
-        return resp
+    .then((res)=>{res.json()
     })
     .then((bd)=>{const dados = bd;
         a_contratos = dados.map(el=> new Contratos(el.num, el.fornecedor, el.cnpj, el.valor, el.ano, el.inicio, el.fim, el.objeto))

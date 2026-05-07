@@ -5,7 +5,7 @@ const porta = process.env.PORT || 3000
 const servidor = http.createServer((req, res)=>{
     res.setHeader("Access-Control-Allow-Origin","*")
     res.setHeader("Access-Control-Allow-Headers","Content-Type")
-    res.setHeader("Access-Control-Allow-Methods","POST , OPTIONS")
+    res.setHeader("Access-Control-Allow-Methods","GET,POST,OPTIONS")
    if(req.method === "OPTIONS"){
     res.writeHead(204)
     res.end()
@@ -21,7 +21,7 @@ const servidor = http.createServer((req, res)=>{
 
             fs.writeFileSync("./dados.json",json)
         })
-        
+        res.end()
     }
     if(req.method === "GET" && req.url === "/"){
             const dados = fs.readFileSync("./dados.json")
@@ -39,6 +39,7 @@ const servidor = http.createServer((req, res)=>{
 
             fs.writeFileSync("./dados_bkp.json",json)
         })
+        res.end()
     }
 })
 
