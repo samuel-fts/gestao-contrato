@@ -1,6 +1,6 @@
 const http = require('http')
 const fs = require('fs')
-const porta = 3000
+const porta = process.env.PORT || 3000
 
 const servidor = http.createServer((req, res)=>{
     res.setHeader("Access-Control-Allow-Origin","*")
