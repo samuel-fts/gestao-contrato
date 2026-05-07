@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viweport" content="width=device-wiidth, initial-scale=1">
+        <link href="estilo.css" type="text/css" rel="stylesheet" >
+        <title>Gestao de contratos</title>
+    </head>
+    <body>
+        <div class="container_master">
+            <h2 >Gestão de Contratos</h2>
+            <div class="card">
+                <h3>Novo Contrato</h3>
+                    <form class="grid">
+                        <input id="num_contrato" type="text" placeholder="Número do Contrato"/>
+                        <input id="cnpj" oninput="formatCNPJ(this.value)" type="text" placeholder="CNPJ" maxlength="18"/>
+                        <input id="valor" oninput="formatVal(this.value)" type="text" placeholder="Valor(R$)"/>
+                        <input id="ano_contrato" type="text" placeholder="Ano" maxlength="4"/>
+                        <input id="fornecedor" type="text" placeholder="Fornecedor"/>
+                        <div><span>Início da Vigência:</span><input id="data_inicial" type="date"></div>
+                        <div><span>Término da Vigência:</span><input id="data_final" type="date"></div>
+                        <textarea id="obj_contrato" placeholder="Objeto"></textarea>
+                    </form>
+                <button id="btn_salvar" type="button" class="btn">Salvar Contratos</button>    
+            </div>
+            <div class="container_graf">
+                
+                <div class="cont_pizza">
+                    <div id="grafico_pizza" class="grafico"></div>
+                    <ul id="grafico_info" class="info_graf">
+                        <li><div class="bloco"></div><span>2012</span></li>
+                    </ul>
+                </div>
+                <div class>
+                    <div id="grafico_reto" class="grafico_reto">
+                        
+                            <div>
+                                    <ul>
+                                        <li>25</li>
+                                        <li>20</li>
+                                        <li>15</li>
+                                        <li>10</li>
+                                        <li>5</li>
+                                        <li>0</li>
+                                    </ul>
+                                </div>
+                            <div class="grade">
+                            
+                                <div class="items_graf">
+                                    <div class="ativo_cont">
+                                         <div id="ativo_"class="ativo_graf"></div>
+                                         <span>ativo</span>
+                                    </div>
+                                     <div class="encerrado_cont">
+                                         <div id="encerrado_" class="encerrado_graf"></div>
+                                         <span>encerrado</span>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            
+                        </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="bar_p">
+                    <h3>Contratos Cadastrados</h3>
+                    <div class="cont_pes">
+                        <span class="data"><input id="min_data" type="number" placeholder="de:" maxlength="4"></input></span>
+                        <span class="data"><input id="max_data" type="number" placeholder="até:" maxlength="4"></input></span>
+                        <span  class="pesq" ><input id="pesqui" placeholder="Pesquisar" oninput="pesquisar(this.value)" type="text"/></span>
+                    </div>
+                   
+                </div>
+                <table class="info_items">
+                    <thead>
+                        <tr>
+                            <th><input id="master" type="checkbox"></input></th>
+                            <th>Número</th>
+                            <th>Fornecedor</th>
+                            <th>CNPJ</th>
+                            <th>Valor</th>
+                            <th>Ano</th>
+                            <th>Início</th>
+                            <th>Fim</th>
+                            <th>Objeto</th>
+                            <th >Status</th>
+                            <th><button id="btn_trash" class="btn"><img src="imgs/lixeira-xmark.png"></button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="section_cont">
+                    
+                    </tbody>
+                    
+                </table>
+            </div>
+            
+        </div>
+        <div id="float_b">
+
+        </div>
+        <div class="float">
+            <div class="card_float">
+                <div class="bar_float">
+                    <h2>Detalhes do Contrato</h2>
+                    <div>
+                        <button id="btn_edit" class="btn"><img src="imgs/lapis.png"></button>
+                    </div>
+                </div>
+                
+                <ul class="info">
+                    <li><b>Número: </b></li>
+                    <li><b>Fornecedor: </b></li>
+                    <li><b>CNPJ: </b></li>
+                    <li><b>Valor: </b></li>
+                    <li><b>Ano: </b></li>
+                    <li><b>Início: </b></li>
+                    <li><b>Fim: </b></li>
+                    <li><b>Objeto: </b></li>
+                    <li ><b >Status:</b></li>
+                </ul> 
+                <button id="btn_fechar" class="btn">Fechar</button>
+            </div>
+        </div>
+    </body>
+    <script src="contratos.js"></script>
+</html>
