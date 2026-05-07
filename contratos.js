@@ -516,7 +516,7 @@ const recebeBD = ()=>{
 const exportarBkp = ()=>{
     fetch(PORTA_bkp,{
         method:"POST",
-        headers:{"Content-Tyoe":"application/json"},
+        headers:{"Content-Type":"application/json"},
         body:JSON.stringify(a_contrator_bkp)
     })
 }
