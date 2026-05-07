@@ -274,7 +274,9 @@ class Contratos{
                         
                     }})
                 })
+                contratoSelecionado = []
                 exportarBD()
+
             })
             btn_nao.addEventListener("click",()=>{
                 exb.innerHTML=''
