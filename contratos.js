@@ -29,7 +29,7 @@ const master = document.getElementById("master")
 
 let a_contratos = []
 let a_contrator_bkp = []
-const recebeBD = async ()=>{
+const recebeBD = ()=>{
   
     fetch("https://gestao-contrato.onrender.com/")
     .then(res => res.json())
@@ -41,7 +41,7 @@ const recebeBD = async ()=>{
 
    
 }
-const exportarBkp = async ()=>{
+const exportarBkp = ()=>{
     fetch(PORTA_bkp,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
@@ -50,15 +50,16 @@ const exportarBkp = async ()=>{
 }
 
 
-const exportarBD = async()=>{
+const exportarBD = ()=>{
     fetch(PORTA,{
         method: "POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(a_contratos)
     })
+    .then(recebeBD())
 }
 
-btn_salvar.addEventListener("click",async()=>{
+btn_salvar.addEventListener("click",()=>{
     a_dados = [cnpj, num_contrato, ano_contrato, fornecedor, obj_contrato, data_inicial, data_final ,valor]
     const verifi = a_dados.some(n=>n.value == "")
     a_dados.map((el)=>{
@@ -79,9 +80,9 @@ btn_salvar.addEventListener("click",async()=>{
             a_dados.map((el)=>{
                 el.value = ''
             })
-            await exportarBkp()
-            await exportarBD()
-            await recebeBD()
+            exportarBkp()
+            exportarBD()
+            
 
         }}
         
