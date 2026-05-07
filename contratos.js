@@ -503,7 +503,7 @@ const formatarCNPJ = (cnpj_)=>{
 }
 const recebeBD = ()=>{
   
-    fetch("http://localhost:3000/")
+    fetch("https://gestao-contrato.onrender.com/")
     .then((res)=>{const resp = res.json()
         return resp
     })
