@@ -16,8 +16,8 @@ const btn_edit = document.getElementById("btn_edit")
 const btn_trash = document.getElementById("btn_trash")
 const info = document.querySelector(".info")
 let contratoSelecionado = []
-const PORTA = 'https://gestao-contrato-1.onrender.com/exportar'
-const PORTA_bkp = 'https://gestao-contrato-1.onrender.com/bkp'
+const PORTA = 'https://gestao-contrato.onrender.com/exportar'
+const PORTA_bkp = 'https://gestao-contrato.onrender.com/bkp'
 const min_data = document.getElementById('min_data')
 const max_data = document.getElementById('max_data')
 const grafico_pizza = document.getElementById("grafico_pizza")
@@ -503,8 +503,8 @@ const formatarCNPJ = (cnpj_)=>{
 }
 const recebeBD = ()=>{
   
-    fetch("https://gestao-contrato-1.onrender.com/")
-    .then(res => res.json)
+    fetch("https://gestao-contrato.onrender.com/")
+    .then(res => res.json())
     .then((bd)=>{const dados = bd;
         a_contratos = dados.map(el=> new Contratos(el.num, el.fornecedor, el.cnpj, el.valor, el.ano, el.inicio, el.fim, el.objeto))
          criar()
