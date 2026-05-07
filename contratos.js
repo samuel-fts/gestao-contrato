@@ -51,9 +51,9 @@ btn_salvar.addEventListener("click",()=>{
             a_dados.map((el)=>{
                 el.value = ''
             })
-            exportarBkp()
-            exportarBD()
-            recebeBD()
+            await exportarBkp()
+            await exportarBD()
+            await recebeBD()
 
         }}
         
@@ -501,7 +501,7 @@ const formatarCNPJ = (cnpj_)=>{
     }
    
 }
-const recebeBD = ()=>{
+const recebeBD = async ()=>{
   
     fetch("https://gestao-contrato.onrender.com/")
     .then(res => res.json())
@@ -513,7 +513,7 @@ const recebeBD = ()=>{
 
    
 }
-const exportarBkp = ()=>{
+const exportarBkp = async ()=>{
     fetch(PORTA_bkp,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
@@ -522,7 +522,7 @@ const exportarBkp = ()=>{
 }
 
 
-const exportarBD = ()=>{
+const exportarBD = async()=>{
     fetch(PORTA,{
         method: "POST",
         headers:{"Content-Type":"application/json"},
