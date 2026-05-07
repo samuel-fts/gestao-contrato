@@ -57,7 +57,10 @@ const exportarBD = ()=>{
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(a_contratos)
     })
-    .then(recebeBD())
+    .then(()=>{
+        recebeBD()
+        console.log("finalizou db")
+    })
 }
 
 btn_salvar.addEventListener("click",()=>{
