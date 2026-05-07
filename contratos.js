@@ -83,7 +83,7 @@ btn_salvar.addEventListener("click",()=>{
             })
             exportarBkp()
             exportarBD()
-            
+            recebeBD()
 
         }}
         
@@ -277,6 +277,7 @@ class Contratos{
                 })
                 contratoSelecionado = []
                 exportarBD()
+                recebeBD()
 
             })
             btn_nao.addEventListener("click",()=>{
